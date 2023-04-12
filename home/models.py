@@ -8,6 +8,6 @@ class Fashion(models.Model):
 
 
 def __str__(self):
-    return self.id
+    return self.phonenumber
 
 
