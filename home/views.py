@@ -14,6 +14,8 @@ def jewellery(request):
     return render(request, 'jewellery.html')
     
 def contact(request):
+     success_massage="No Message"
+
      if request.method == "POST":
         phonenumber = request.POST.get('phonenumber')
         delivery = request.POST.get('delivery')
@@ -21,7 +23,9 @@ def contact(request):
        
         query = Fashion(phonenumber=phonenumber, delivery=delivery, category=category)
         query.save()
-        return redirect("/")
-     return render(request, 'contact.html')
+        success_massage = "You have sucessfuly send your infromation"
+        return render(request, 'contact.html',{"mmg1":success_massage,"mmg2":777})
+     return render(request, 'contact.html',{"mmg1":success_massage,"mmg2":777})
 
     
+#     dic1= {"firstname": "Gilbert","secondName":"Korir"} 
