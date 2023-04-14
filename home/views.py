@@ -14,7 +14,7 @@ def jewellery(request):
     return render(request, 'jewellery.html')
     
 def contact(request):
-     success_massage="No Message"
+     success_massage=""
 
      if request.method == "POST":
         phonenumber = request.POST.get('phonenumber')
@@ -23,7 +23,7 @@ def contact(request):
        
         query = Fashion(phonenumber=phonenumber, delivery=delivery, category=category)
         query.save()
-        success_massage = "You have sucessfuly send your infromation"
+        success_massage = "You have sucessfuly send your infomation, You will get within 3 days of your request. Thanks for ordering"
         return render(request, 'contact.html',{"mmg1":success_massage,"mmg2":777})
      return render(request, 'contact.html',{"mmg1":success_massage,"mmg2":777})
 
