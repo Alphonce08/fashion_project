@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Fashion
 
-def index(request):
+def home(request):
     return render(request, 'index.html')
 
 def electronic(request):
