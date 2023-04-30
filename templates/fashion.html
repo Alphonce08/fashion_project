@@ -4,6 +4,7 @@
      
      {% block content %}
          <!-- banner section start -->
+         <form method="POST" enctype="multipart/form-data" action="{% url 'updateimage' id=singleimagedata.id %}">
          <div class="banner_section layout_padding">
             <div class="container">
                <div id="my_slider" class="carousel slide" data-ride="carousel">

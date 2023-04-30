@@ -1,5 +1,30 @@
 from django.shortcuts import render, redirect
 from .models import Fashion
+import os
+from django.conf import settings
+
+
+
+
+def updateimage(request, id):  #this function is called when update data
+    old_image = ImageModel.objects.get(id=id)
+    form = ImageForm(request.POST, request.FILES, instance=old_image)
+
+    if form.is_valid():
+
+        # deleting old uploaded image.
+        image_path = old_image.image_document.path
+        if os.path.exists(image_path):
+            os.remove(image_path)
+
+        # the `form.save` will also update your newest image & path.
+        form.save()
+        return redirect("/myapp/productlist")
+    else:
+        context = {'singleimagedata': old_image, 'form': form}
+        return render(request, 'demo/editproduct.html', context)
+
+
 
 def home(request):
     return render(request, 'index.html')
@@ -28,4 +53,3 @@ def contact(request):
      return render(request, 'contact.html',{"mmg1":success_massage,"mmg2":777})
 
     
-#     dic1= {"firstname": "Gilbert","secondName":"Korir"} 
