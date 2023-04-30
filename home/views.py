@@ -19,7 +19,7 @@ def updateimage(request, id):  #this function is called when update data
 
         # the `form.save` will also update your newest image & path.
         form.save()
-        return redirect("/myapp/productlist")
+        return redirect("/fashion_project")
     else:
         context = {'singleimagedata': old_image, 'form': form}
         return render(request, 'demo/editproduct.html', context)
