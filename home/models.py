@@ -24,6 +24,8 @@ class Product(models.Model):
     price = models.FloatField(blank=False, null=False)
     image =  models.ImageField(upload_to="images", blank=False, null=False)
     category = models.ForeignKey(Category,on_delete=models.CASCADE,blank=True, null=True)
+    #avatar = models.ImageField(upload_to='avatars', default=Category)
+    
 
     def __str__(self):
         return str(self.name)
