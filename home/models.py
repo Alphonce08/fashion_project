@@ -24,8 +24,8 @@ class Product(models.Model):
     price = models.FloatField(blank=False, null=False)
     image =  models.ImageField(upload_to="images", blank=True, null=True)
     category = models.ForeignKey(Category,on_delete=models.CASCADE,blank=True, null=True)
-    description = models.TextField(max_length=220, blank=True, default=0)
-    publish = models.DateField(auto_now=True, auto_now_add=True)
+    description = models.TextField(max_length=220, blank=True)
+    #publish = models.DateField(auto_now=True, auto_now_add=True)
     #avatar = models.ImageField(upload_to='avatars', default=Category)
     
 
