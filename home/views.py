@@ -34,6 +34,8 @@ def electronic(request):
 
 def fashion(request):
     return render(request, 'fashion.html')
+def login(request):
+    return render(request, 'login.html')
 
 def jewellery(request):
     return render(request, 'jewellery.html')
