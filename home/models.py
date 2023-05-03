@@ -6,6 +6,8 @@ class Fashion(models.Model):
     delivery= models.CharField(max_length=30, blank=True, null=True)
     category = models.CharField(max_length=30, blank=True, null=True)
 
+    
+
 
 def __str__(self):
     return self.id
