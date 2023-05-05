@@ -11,5 +11,5 @@ urlpatterns = [
     path('jewellery', views.jewellery, name='jewellery'),
     path('contact', views.contact, name='contact'),
     path('buy/', views.buy, name='buy'),
-    path('images', views.images, name='images')
+    path('images', views.Images, name='images')
     ]
