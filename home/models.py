@@ -35,4 +35,11 @@ class Product(models.Model):
         return str(self.name)
 
 class Images(models.Model):
-    images = models.ImageField(upload_to="images", blank=True, null=True)
+    images = models.ImageField(upload_to="media")
+    titr = models.CharField(max_length=200)
+    create = models.DateField(auto_now_add=True)
+    update = models.DateField(auto_now=True)
+
+    class Meta:
+        def __str__(self):
+            return self(self.titr)
