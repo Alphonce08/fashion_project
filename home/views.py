@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect
 from .models import Fashion
 import os
 from django.conf import settings
+from django import Images
 
 
 
 
-def updateimage(request, id):  #this function is called when update data
+def imageupdate(request, id):  #this function is called when update data
     old_image = ImageModel.objects.get(id=id)
     form = ImageForm(request.POST, request.FILES, instance=old_image)
 
@@ -23,6 +24,14 @@ def updateimage(request, id):  #this function is called when update data
     else:
         context = {'singleimagedata': old_image, 'form': form}
         return render(request, 'demo/editproduct.html', context)
+        
+
+
+def img(request):
+    data = Images.objects.all()
+    context = {"data": data}
+    return render(request, "electronic.html", "fashion.html", "jewellery.html", context)       
+        
 
 
 

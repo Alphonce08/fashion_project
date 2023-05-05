@@ -105,8 +105,12 @@
                              
 
                           {% {% for image in  %}
+                          
+                           {% for d in data %}
+                             <tr>
+                               <td>{{d.images}}</td>
 
-
+                           
                           {{image.updateimage}}
                           {% endfor %} %}
 
