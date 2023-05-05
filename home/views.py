@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Fashion
 import os
 from django.conf import settings
-from django import Images
+
 
 
 
@@ -27,7 +27,7 @@ def imageupdate(request, id):  #this function is called when update data
         
 
 
-def img(request):
+def images(request):
     data = Images.objects.all()
     context = {"data": data}
     return render(request, "electronic.html", "fashion.html", "jewellery.html", context)       
