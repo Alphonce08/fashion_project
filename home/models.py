@@ -34,5 +34,5 @@ class Product(models.Model):
     def __str__(self):
         return str(self.name)
 
-
-
+class Images(models.Model):
+    images = models.ImageField(upload_to="images", blank=True, null=True)
