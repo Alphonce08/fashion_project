@@ -4,28 +4,7 @@ import os
 from django.conf import settings
 from .models import Images
 
-
-
-
-
-def imageupdate(request, id):  #this function is called when update data
-    old_image = ImageModel.objects.get(id=id)
-    form = ImageForm(request.POST, request.FILES, instance=old_image)
-
-    if form.is_valid():
-
-        # deleting old uploaded image.
-        image_path = old_image.image_document.path
-        if os.path.exists(image_path):
-            os.remove(image_path)
-
-        # the `form.save` will also update your newest image & path.
-        form.save()
-        return redirect("/fashion_project")
-    else:
-        context = {'singleimagedata': old_image, 'form': form}
-        return render(request, 'demo/editproduct.html', context)
-        
+     
 
 
 def img(request):
@@ -65,3 +44,19 @@ def contact(request):
      return render(request, 'contact.html',{"mmg1":success_massage,"mmg2":777})
 
     
+def oauth_success(request):
+    r = cl.access_token()
+    return JsonResponse(r, safe=False)
+
+
+def lipamimi(request):
+    if request.method == "POST":
+        phone_number = request.POST.get('phone')
+        amount = request.POST.get('amount')
+        amount = int(amount)
+        account_reference = 'WANYAMA'
+        transaction_desc = 'STK Push Description'
+        callback_url = stk_push_callback_url
+        r = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
+        return JsonResponse(r.response_description, safe=False)
+    return render(request, 'buy.html')
