@@ -6,7 +6,7 @@ from .models import Images
 
      
 
-
+#image upload
 def img(request):
     images = Images.objects.all()
     context = {"images": images}
@@ -28,7 +28,7 @@ def buy(request):
 
 def jewellery(request):
     return render(request, 'jewellery.html')
-    
+    #contact page
 def contact(request):
      success_massage=""
 
@@ -43,7 +43,7 @@ def contact(request):
         return render(request, 'contact.html',{"mmg1":success_massage,"mmg2":777})
      return render(request, 'contact.html',{"mmg1":success_massage,"mmg2":777})
 
-    
+   #payment 
 def oauth_success(request):
     r = cl.access_token()
     return JsonResponse(r, safe=False)
