@@ -26,6 +26,9 @@ def fashion(request):
 def buy(request):
     return render(request, 'buy.html')
 
+def more(request):
+    return render(request, 'more.html')
+
 def jewellery(request):
     return render(request, 'jewellery.html')
     #contact page
