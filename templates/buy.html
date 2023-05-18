@@ -34,8 +34,70 @@
          </html>     
 
 
-  
+         #other option
+
+
+         #class UserAdmin(admin.ModelAdmin):
+         # "id" can be replaced by any other field to use as link
+         #list_display = ('id', 'profile_pic',)
+         #list_editable = ('profile_pic',)
      
 
 
+
+
+In addition to the answer of Michael C. O'Connor
+
+Note that since Django v.1.9 (updated - tested and worked all the way to Django 3.0)
+
+image_tag.allow_tags = True
+
+is deprecated and you should use format_html(), format_html_join(), or mark_safe() instead
+
+So if you are storing your uploaded files in your public /directory folder, your code should look like this:
+
+from django.utils.html import mark_safe
+
+
+    Class Model1(models.Model):
+        image = models.ImageField(upload_to=directory)
+
+        def image_tag(self):
+            return mark_safe('<img src="/directory/%s" width="150" height="150" />' % (self.image))
+
+        image_tag.short_description = 'Image'
+
+and in your admin.py add:
+
+fields = ['image_tag']
+readonly_fields = ['image_tag']
+
+
+
+
+
+
+
+
+{% extends "admin/change_form.html" %}
+
+{% block field_sets %}
+{% if original %}
+<div class="aligned form-row">
+    <div>
+        <label>Preview:</label>
+        <img
+            alt="image preview"
+            src="/{{ original.file.url }}"
+            style="max-height: 300px;">
+    </div>
+</div>
+{% endif %}
+{% for fieldset in adminform %}
+  {% include "admin/includes/fieldset.html" %}
+{% endfor %}
+{% endblock %}
          
+
+
+
