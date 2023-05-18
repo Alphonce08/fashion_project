@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Fashion
 import os
 from django.conf import settings
-from .models import Images
+from .models import Images,Product
 
      
 
@@ -19,10 +19,16 @@ def home(request):
     return render(request, 'index.html')
 
 def electronic(request):
-    return render(request, 'electronic.html')
+    e_products= Product.objects.filter(category_id=1)
+    context = {"e_products":e_products }
+       
+    return render(request, 'electronic.html', context)
 
 def fashion(request):
-    return render(request, 'fashion.html')
+    e_products= Product.objects.filter(category_id=3)
+    context = {"e_products":e_products }
+    return render(request, 'fashion.html', context)
+    
 def buy(request):
     return render(request, 'buy.html')
 

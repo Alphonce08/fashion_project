@@ -1,6 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
+class TimeStamp(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
+    
+    class Meta:
+        abstract = True
+       
+
 class Fashion(models.Model):
 
     phonenumber = models.IntegerField(blank=True, null=True, default=3)
@@ -31,7 +40,7 @@ class Images(models.Model):
             return self(self.titr)
             
             
-class Product(models.Model):
+class Product(TimeStamp):#inherit TimeStamp class
     '''This represent an instance of a product to be sold in the market/platform'''
     
     name= models.CharField(max_length=30, blank=False, null=False)
@@ -47,7 +56,7 @@ class Product(models.Model):
         return str(self.name)
 
 
-class Shopping(models.Model):
+class Shopping(TimeStamp):#inherit TimeStamp class
     '''
     Create an instance of shopping by a buyer
     A single order can have many products and can be assosiated to aa registered user
@@ -59,7 +68,7 @@ class Shopping(models.Model):
     def __str__(self):
         return str(self.id)    
         
-class Order(models.Model):
+class Order(TimeStamp):#inherit TimeStamp class
     '''
     Create an instance of order by a buyer
     A single order can have many order
@@ -68,4 +77,4 @@ class Order(models.Model):
     shopping = models.ForeignKey(Shopping,on_delete=models.CASCADE,blank=True, null=True)
 
     def __str__(self):
-        return str(self.product)   
+        return str(self.shopping)   

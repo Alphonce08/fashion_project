@@ -6,7 +6,24 @@ from .models import *#Fashion,Product,Category,Images,Order
 
 
 admin.site.register(Fashion)
-admin.site.register(Product)
+#admin.site.register(Product)
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "name",
+        "price",
+        "image",
+        "category",
+      
+    )
+
+    list_display_links = ("id",)
+
+
+admin.site.register(Product, ProductAdmin)
+
+
 admin.site.register(Category)
 admin.site.register(Images)
 admin.site.register(Order)
