@@ -48,6 +48,8 @@ class Product(TimeStamp):#inherit TimeStamp class
     image =  models.ImageField(upload_to="images", blank=True, null=True)#image to be displayed for the product
     description = models.TextField(max_length=220, blank=True)
     
+    sold  = models.BooleanField(default=False, blank=True, null=True)
+    
     other_image = models.ForeignKey(Images,on_delete=models.CASCADE,blank=True, null=True)#other images that can be displayed along the main image
     category = models.ForeignKey(Category,on_delete=models.CASCADE,blank=True, null=True)
   

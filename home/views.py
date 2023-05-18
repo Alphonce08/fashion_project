@@ -16,17 +16,23 @@ def img(request):
 
 
 def home(request):
+    e_prod= Product.objects.filter(category_id=1,sold=False)
+    
+   
+    f_prod= Product.objects.filter(category_id=6,sold=False)
+    j_prod= Product.objects.filter(category_id=2,sold=False)
+    
     return render(request, 'index.html')
 
 def electronic(request):
-    e_products= Product.objects.filter(category_id=1)
-    context = {"e_products":e_products }
-       
+    e_prod= Product.objects.filter(category_id=1,sold=False)
+    context = {"e_prod":e_prod }
+ 
     return render(request, 'electronic.html', context)
 
 def fashion(request):
-    e_products= Product.objects.filter(category_id=3)
-    context = {"e_products":e_products }
+    f_prod= Product.objects.filter(category_id=6,sold=False)
+    context = {"f_prod":f_prod }
     return render(request, 'fashion.html', context)
     
 def buy(request):
@@ -36,6 +42,9 @@ def more(request):
     return render(request, 'more.html')
 
 def jewellery(request):
+    j_prod= Product.objects.filter(category_id=2,sold=False)
+    context = {"j_prod":j_prod }
+    return render(request, 'fashion.html', context)
     return render(request, 'jewellery.html')
     #contact page
 def contact(request):

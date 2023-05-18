@@ -15,16 +15,33 @@ class ProductAdmin(admin.ModelAdmin):
         "price",
         "image",
         "category",
+        'sold',
+        
       
     )
 
     list_display_links = ("id",)
+    
+    search_fields = ("id",)
+    list_editable = (
+        "price",
+        "sold",
+        "category",
+       
+    )
 
 
 admin.site.register(Product, ProductAdmin)
 
 
-admin.site.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "name",
+        
+      
+    )
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Images)
 admin.site.register(Order)
 admin.site.register(Shopping)
