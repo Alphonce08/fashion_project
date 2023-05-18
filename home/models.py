@@ -56,6 +56,8 @@ class Product(TimeStamp):#inherit TimeStamp class
 
     def __str__(self):
         return str(self.name)
+    class Meta:
+        get_latest_by= "id"
 
 
 class Shopping(TimeStamp):#inherit TimeStamp class

@@ -16,13 +16,17 @@ def img(request):
 
 
 def home(request):
-    e_prod= Product.objects.filter(category_id=1,sold=False)
-    
-   
+    e_prod= Product.objects.filter(category_id=1,sold=False) 
     f_prod= Product.objects.filter(category_id=6,sold=False)
     j_prod= Product.objects.filter(category_id=2,sold=False)
     
-    return render(request, 'index.html')
+    print(f_prod[0:3])
+    
+    context = {"e_prod":e_prod ,"f_prod":f_prod,"j_prod":j_prod,}
+    
+    
+    return render(request, 'index.html', context)
+    
 
 def electronic(request):
     e_prod= Product.objects.filter(category_id=1,sold=False)
