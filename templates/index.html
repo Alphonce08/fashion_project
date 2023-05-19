@@ -18,8 +18,8 @@
                          
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Man T -shirt</h4>
-                                 <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
+                                 <h4 class="shirt_text">{{prod.name}}</h4>
+                                 <p class="price_text">Price  <span style="color: #262626;">$ {{prod.price}}</span></p>
                                  <div class="tshirt_img"><img src="{% static 'images/tshirt-img.png' %}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="buy">Buy Now</a></div>
@@ -58,8 +58,8 @@
                         {% for prod in e_prod%}
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Laptop</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
+                                 <h4 class="shirt_text">{{prod.name}}</h4>
+                                 <p class="price_text">Start Price  <span style="color: #262626;">$ {{prod.price}}</span></p>
                                  <div class="electronic_img"><img src="{% static 'images/laptop-img.png' %}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="buy">Buy Now</a></div>
@@ -98,8 +98,8 @@
                         {% for prod in e_prod%}
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Jumkas</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
+                                 <h4 class="shirt_text">{{prod.name}}</h4>
+                                 <p class="price_text">Start Price  <span style="color: #262626;">$ {{prod.price}}</span></p>
                                  <div class="jewellery_img"><img src="{% static 'images/jhumka-img.png' %}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="buy">Buy Now</a></div>

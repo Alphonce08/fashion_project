@@ -23,10 +23,11 @@ def home(request):
     print(f_prod[0:3])
     
     context = {"e_prod":e_prod ,"f_prod":f_prod,"j_prod":j_prod,}
-    
-    
+
     return render(request, 'index.html', context)
     
+
+
 
 def electronic(request):
     e_prod= Product.objects.filter(category_id=1,sold=False)
@@ -38,18 +39,23 @@ def fashion(request):
     f_prod= Product.objects.filter(category_id=6,sold=False)
     context = {"f_prod":f_prod }
     return render(request, 'fashion.html', context)
-    
-def buy(request):
-    return render(request, 'buy.html')
-
-def more(request):
-    return render(request, 'more.html')
+   
 
 def jewellery(request):
     j_prod= Product.objects.filter(category_id=2,sold=False)
     context = {"j_prod":j_prod }
-    return render(request, 'fashion.html', context)
-    return render(request, 'jewellery.html')
+   
+    return render(request, 'jewellery.html', context)
+    
+    
+  
+  
+    
+def buy(request):
+    return render(request, 'buy.html')    
+def more(request):
+    return render(request, 'more.html')   
+    
     #contact page
 def contact(request):
      success_massage=""

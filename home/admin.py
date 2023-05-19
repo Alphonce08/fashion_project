@@ -27,6 +27,7 @@ class ProductAdmin(admin.ModelAdmin):
         "price",
         "sold",
         "category",
+        "name",
        
     )
 

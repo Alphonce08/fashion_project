@@ -18,8 +18,8 @@
                         
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Jumkas</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
+                                 <h4 class="shirt_text">{{prod.name}}</h4>
+                                 <p class="price_text">Start Price  <span style="color: #262626;">$ {{prod.price}}</span></p>
                                  <div class="jewellery_img"><img src="{% static 'images/jhumka-img.png' %}"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="buy">Buy Now</a></div>
@@ -30,45 +30,8 @@
                            
                            
                            {% endfor %}
-                           
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Necklaces</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
-                                 <div class="jewellery_img"><img src="{% static 'images/neklesh-img.png' %}"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="buy">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="more">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           
-                           
-                            <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Watch</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
-                                 <div class="jewellery_img"><img src="{% static 'images/watch.jpg' %}"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="buy">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="more">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           
-                           
-                       
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Kangans</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
-                                 <div class="jewellery_img"><img src="{% static 'images/kangan-img.png' %}"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="buy">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="more">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
+                 
+                   
                         </div>
                      </div>
                   </div>
