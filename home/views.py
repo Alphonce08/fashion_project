@@ -54,6 +54,9 @@ def jewellery(request):
 def buy(request):
     return render(request, 'buy.html')    
 def more(request):
+    m_prod= Product.objects.filter(category_id=1,sold=False)
+    context = {"m_prod":m_prod }
+ 
     return render(request, 'more.html')   
     
     #contact page
