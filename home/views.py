@@ -16,11 +16,21 @@ def img(request):
 
 
 def home(request):
-    e_prod= Product.objects.filter(category_id=1,sold=False) 
+    e_prod= Product.objects.filter(category_id=1,sold=False)#.last
     f_prod= Product.objects.filter(category_id=6,sold=False)
     j_prod= Product.objects.filter(category_id=2,sold=False)
+
+
+  
+    # if len(list(e_prod)) >= 3:
+    #     last3 = len(list(e_prod))-3
+    # else:
+    #     last3 = len(list(e_prod))
+
+    # e_prod3=list(e_prod)[last3:]
     
-    print(f_prod[0:3])
+    # print(e_prod)
+    
     
     context = {"e_prod":e_prod ,"f_prod":f_prod,"j_prod":j_prod,}
 
